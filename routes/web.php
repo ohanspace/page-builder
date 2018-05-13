@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageController@index');
+Route::get('/page/{id}', 'PageController@detail');
 
 Route::get('page-builder', 'PageBuilderController@index');
