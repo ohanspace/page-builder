@@ -47,9 +47,11 @@
         pageListEl.children().remove();
         for (i = 0; i < pages.length; i++) {
             var page = pages[i];
+            var btn = $('<button><i class="fa fa-cogs"></i></button>');
             var li = $('<li></li>')
-                .text(page.title);
-            li.click(page, function ($event) {
+                .text(page.title).append(btn);
+
+            btn.click(page, function ($event) {
                 editPage($event.data)
             });
             pageListEl.append(li);
@@ -112,7 +114,7 @@
 
     function showPageEditForm(page) {
         pageEditFormEl.show();
-        pageListEl.hide();
+        //pageListEl.hide();
 
         var titleEl = pageEditFormEl.find("[name = 'title']").first();
         titleEl.val(page.title);
